@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --hue: 70;
+    --bg-color: hsl(var(--hue), 5%, 7%);
+    --text-color: hsl(var(--hue), 40%, 90%);
+    --primary-color: hsl(var(--hue), 40%, 90%);
+    --button-color: #02799D;
+    --controls-bg-color: hsl(var(--hue), 0%, 14%);
+    --button-secondary: hsl(var(--hue), 40%, 90%);
+
+    font-size: clamp(40%, 1% + 2vw, 62,5%);
+}
+
+html.light {
+    --bg-color: hsl(var(--hue), 40%, 98%);
+    --text-color: hsl(var(--hue), 5%, 7%);
+    --primary-color: hsl(var(--hue), 5%, 7%);
+    --controls-bg-color: hsl(var(--hue), 10%, 70%);
+}
+
+html.light .ph-sun,
+html:not(.light) .ph-moon {
+    display: none;
+}
+
+#toggle-mode {
+    position: absolute;
+    right: 3.2rem;
+    top: 3.2rem;
+    font-size: 3.2rem;
+    line-height: 0;
+    color: var(--text-color);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 192px;
+    height: 100vh;
+    place-content: center;
+}
+
+#app {
+    display: grid;
+    justify-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+#timer {
+    font-size: 9.6rem;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+#controls {
+    margin-top: 1.6rem;
+    padding: 2.2rem 4rem;
+    gap: 1.6rem;
+    background-color: var(--controls-bg-color);
+    border-radius: 999rem;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 2.6rem;
+}
+
+.secondary {
+    color: var(--button-secondary);
+}
+div#choices {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 32px;
+}
+div#choices button{
+    width: 138px;
+    height: 152px;
+    padding: 47px;
+    background-color: var(--controls-bg-color);
+    border-radius: 24px;
+}
+/* controls */
+.running .ph-play-circle,
+html:not(.running) .ph-stop-circle {
+    color: var(--button-color);
+}
+
+.forest-on div#choices button.ph.ph-tree,
+.rain-on div#choices button.ph.ph-cloud-rain,
+.shop-on div#choices button.ph.ph-storefront,
+.fireplace-on div#choices button.ph.ph-fire{
+    color: var(--button-secondary);
+    background-color: var(--button-color);
+}
